@@ -14,7 +14,7 @@ resource "aws_instance" "main" {
 }
 
 # connect to instance using remote-excec provisioner through terraform_data
-resource "terraform_data" "catalogue" {
+resource "terraform_data" "main" {
   triggers_replace = [
     aws_instance.main.id
   ]
@@ -178,7 +178,7 @@ resource "aws_autoscaling_policy" "main" {
   }
 }
 
-resource "aws_lb_listener_rule" "catalouge" {
+resource "aws_lb_listener_rule" "main" {
   listener_arn = local.listener_arn
   priority     = var.rule_priority
 
